@@ -4,43 +4,352 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ChaoNueaChok — Lucky Numbers • Horoscope • Dreams</title>
-  <meta name="description" content="ChaoNueaChok — รวมเลขเด็ดวันนี้ ดูดวงรายวัน ทำนายฝัน และข่าวลี้ลับ อัปเดตบ่อย โหลดไว" />
+  <meta name="description" content="ChaoNueaChok — รวมเลขเด็ดวันนี้ ดูดวงรายวัน ทำนายฝัน และข่าวลี้ลับ อัปเดตบ่อย โหลดไว (Static ไม่มีฐานข้อมูล)" />
+  <meta name="robots" content="index,follow" />
+  <style>
+    :root {
+      --bg: #0b1220; --surface:#111827; --muted:#1f2937; --ring:#374151;
+      --text:#e5e7eb; --sub:#94a3b8; --accent:#60a5fa; --brand:#fbbf24;
+      --radius:16px; --shadow:0 10px 25px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#0e1729 40%,#0b1220);color:var(--text);
+         font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Inter,"Noto Sans Thai","Noto Sans","Helvetica Neue",Arial}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{position:sticky;top:0;z-index:10;background:rgba(17,24,39,.9);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--ring)}
+    .container{max-width:1100px;margin:0 auto;padding:16px 20px}
+    nav{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;
+          background:radial-gradient(circle at 30% 30%, #fde68a, #f59e0b 60%, #92400e);box-shadow:var(--shadow);font-weight:900}
+    .brand-title{display:flex;flex-direction:column}
+    .brand-title .name{font-weight:900;letter-spacing:.3px}
+    .brand-title .tag{color:var(--sub);font-size:12px;margin-top:2px}
+    .menu{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+    .menu a{padding:8px 12px;border:1px solid transparent;border-radius:12px}
+    .menu a:hover{background:var(--muted);border-color:var(--ring);text-decoration:none}
+    main.container{padding-top:22px}
+    .grid{display:grid;gap:16px}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:920px){.grid-2,.grid-3{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg,var(--surface),#0f172a);border:1px solid var(--ring);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card-inner{padding:16px}
+    section{margin:26px 0}
+    h2{margin:0 0 10px}
+    .muted{color:var(--sub)}
+    .item{padding:12px;border:1px solid var(--ring);border-radius:12px;background:#0c1426}
+    .badge{display:inline-block;padding:4px 8px;border:1px solid var(--ring);border-radius:999px;font-size:12px;color:var(--sub)}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:6px 12px;border-radius:999px;background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#111827;font-weight:800}
+    .title-xl{font-size:clamp(22px,4vw,36px);line-height:1.15;margin:10px 0 6px}
+    .kbd{font-family:ui-monospace,Menlo,Consolas,monospace;background:#0b1220;border:1px solid var(--ring);border-bottom-width:2px;padding:10px 12px;border-radius:12px;color:var(--text);width:100%}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;border:1px solid var(--ring);background:#0b1220;color:var(--text);cursor:pointer}
+    .btn:hover{background:#0e172a}
+    .btn-primary{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#111827;border-color:#fde68a;font-weight:800}
+    footer{border-top:1px solid var(--ring);background:rgba(17,24,39,.6)}
+  </style>
 </head>
 <body>
   <header>
-    <h1>✨ ChaoNueaChok</h1>
-    <nav>
-      <a href="#lucky">Lucky Numbers</a> |
-      <a href="#horo">Horoscope</a> |
-      <a href="#dream">Dreams</a> |
-      <a href="#mystery">Mystery News</a> |
-      <a href="#tips">Life Tips</a> |
-      <a href="#chants">Chants</a>
-    </nav>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="logo">✨</div>
+          <div class="brand-title">
+            <div class="name">ChaoNueaChok</div>
+            <div class="tag">Master of Fortune & Luck</div>
+          </div>
+        </div>
+        <div class="menu">
+          <a href="#lucky">Lucky Numbers</a>
+          <a href="#horo">Horoscope</a>
+          <a href="#dream">Dreams</a>
+          <a href="#mystery">Mystery News</a>
+          <a href="#tips">Life Tips</a>
+          <a href="#chants">Chants</a>
+        </div>
+      </nav>
+    </div>
   </header>
-  <main>
-    <section id="lucky">
-      <h2>Lucky Numbers</h2>
-      <ul>
-        <li>เลขเด็ดวันนี้: 27, 72, 927</li>
-        <li>เลขจากข่าวดัง: 304, 34, 403</li>
-        <li>เลขดังจากวัด: 519</li>
-      </ul>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="grid grid-2">
+      <div class="card">
+        <div class="card-inner">
+          <span class="pill">Lucky Numbers • Horoscope • Dreams</span>
+          <h1 class="title-xl">Daily Thai Beliefs Hub</h1>
+          <p class="muted">Static site — no database. Update by editing this file and pushing to GitHub Pages.</p>
+          <div class="grid grid-3" style="margin-top:12px">
+            <div class="item">
+              <strong>เลขเด็ดวันนี้</strong>
+              <div class="muted" id="todayNumbers">—</div>
+            </div>
+            <div class="item">
+              <strong>ดวงการเงิน</strong>
+              <div class="muted" id="moneyDaily">—</div>
+            </div>
+            <div class="item">
+              <strong>ข่าวลี้ลับล่าสุด</strong>
+              <div class="muted" id="mysteryTicker">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-inner">
+          <h2>ค้นหา “ทำนายฝัน”</h2>
+          <p class="muted">พิมพ์คำที่ฝัน เช่น งู, ฟันหลุด, ทอง แล้วกดค้นหา</p>
+          <div style="display:flex;gap:10px;margin:10px 0 8px">
+            <input id="dreamInput" class="kbd" placeholder="พิมพ์คำที่ฝัน..." />
+            <button class="btn btn-primary" id="dreamBtn">ค้นหา</button>
+          </div>
+          <div id="dreamResult" class="item" style="display:none"></div>
+          <div class="muted">ยอดนิยม: <span class="badge">งู</span> <span class="badge">ฟันหลุด</span> <span class="badge">ทอง</span> <span class="badge">ปลา</span></div>
+        </div>
+      </div>
     </section>
+
+    <!-- LUCKY NUMBERS -->
+    <section id="lucky">
+      <h2>🎲 Lucky Numbers</h2>
+      <div class="grid grid-3">
+        <div class="card"><div class="card-inner">
+          <strong>เลขจากข่าวดัง</strong>
+          <div id="newsNumbers"></div>
+        </div></div>
+        <div class="card"><div class="card-inner">
+          <strong>เลขจากความฝัน</strong>
+          <div id="dreamNumbers"></div>
+        </div></div>
+        <div class="card"><div class="card-inner">
+          <strong>เลขดังจากวัด/สถานที่ศักดิ์สิทธิ์</strong>
+          <div id="templeNumbers"></div>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- HOROSCOPE -->
     <section id="horo">
-      <h2>Daily Horoscope</h2>
-      <ul>
-        <li>Love: มีเสน่ห์ คนโสดพบคนถูกใจ</li>
-        <li>Money: มีรายรับเล็กน้อย อย่าฟุ่มเฟือย</li>
-        <li>Work: ได้ผู้ใหญ่สนับสนุน มีโอกาสใหม่</li>
-      </ul>
+      <h2>🔮 Daily Horoscope</h2>
+      <div class="grid grid-2">
+        <div class="card"><div class="card-inner">
+          <strong>Love</strong>
+          <div class="muted" id="loveDaily">—</div>
+        </div></div>
+        <div class="card"><div class="card-inner">
+          <strong>Work</strong>
+          <div class="muted" id="workDaily">—</div>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- MYSTERY NEWS -->
+    <section id="mystery">
+      <h2>👻 Mystery & Viral News</h2>
+      <div class="grid grid-3" id="mysteryList"></div>
+    </section>
+
+    <!-- TIPS -->
+    <section id="tips">
+      <h2>🌱 Life Tips & Beliefs</h2>
+      <div class="grid grid-3" id="tipsList"></div>
+    </section>
+
+    <!-- CHANTS -->
+    <section id="chants">
+      <h2>📜 Chants & Mantras</h2>
+      <div class="grid grid-2" id="chantsList"></div>
     </section>
   </main>
+
   <footer>
-    <p>© <span id="year"></span> ChaoNueaChok — All rights reserved</p>
+    <div class="container">
+      <div style="display:flex;gap:10px;align-items:center">
+        <div>© <span id="year"></span> ChaoNueaChok — Static site (no DB)</div>
+        <div style="margin-left:auto" class="muted">Update by editing the script block below.</div>
+      </div>
+    </div>
   </footer>
+
+  <!-- DATA & LOGIC -->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const SITE = {
+      brand: "ChaoNueaChok",
+      tagline: "Master of Fortune & Luck",
+      todayNumbers: ["0","2","7","20","27","720","927"],
+      newsNumbers: [
+        { t: "งูเขียวเข้าบ้านเลขที่ 27/9", nums: ["2","7","9","27","79","279"], note: "เลขที่บ้าน + เวลาเกิดเหตุ" },
+        { t: "ทะเบียนรถเจอเงาปริศนา", nums: ["4","1","41","514"], note: "ตีจากป้ายทะเบียน 5-141" },
+        { t: "รอยคล้ายตัวเลขบนต้นกล้วย", nums: ["6","8","68","168"], note: "ชาวบ้านเชื่อเป็นสิริมงคล" },
+        { t: "เด็กคลอดบนรถกระบะ", nums: ["1","2","12","912"], note: "ตีจากเวลาคลอด + เลขท้ายทะเบียน" },
+        { t: "เลขหางประทัดงานบวงสรวง", nums: ["5","7","57","957"], note: "เลขธูปเสี่ยงทาย" }
+      ],
+      dreamNumbers: [
+        { t: "ฝันเห็นงู", nums: ["5","6","56","65","566"], note: "งู = เนื้อคู่/โชคลาภ" },
+        { t: "ฟันหลุด", nums: ["8","0","80","808"], note: "เปลี่ยนแปลง/โยกย้าย" },
+        { t: "อุจจาระ", nums: ["2","1","12","21","112"], note: "ลาภลอย การเงินดี" }
+      ],
+      templeNumbers: [
+        { t: "วัดดังเชียงใหม่", nums: ["1","9","19","919"], note: "เลขธูป + วันทำบุญ" },
+        { t: "ศาลเจ้าแม่", nums: ["3","7","37","937"], note: "เลขเซียมซี" },
+        { t: "หลวงพ่อทันใจ", nums: ["5","0","50","950"], note: "เวลาจุดธูป 19:50" }
+      ],
+      daily: {
+        love: "เสน่ห์มาจากความจริงใจ คนโสดมีโอกาสเจอจากโลกออนไลน์",
+        money: "มีรายรับเล็ก ๆ แต่ถี่ แบ่งออม 30% ทันที",
+        work:  "งานเก่าปิดจ๊อบได้ ผู้ใหญ่ชื่นชม มีโปรเจกต์ใหม่เข้ามา"
+      },
+      mysteryNews: [
+        { title: "พบรอยประหลาดที่ต้นมะม่วง คล้ายตัวเลข", tag: "ลี้ลับ", date: "วันนี้", brief: "ชาวบ้านแห่ตีเลขขอโชคก่อนวันสำคัญ" },
+        { title: "กล้องหน้ารถติดภาพเงาปริศนา", tag: "ผีสาง", date: "เมื่อวาน", brief: "บางคนเชื่อว่าเป็นวิญญาณ" },
+        { title: "งูเขียวเลื้อยเข้าบ้านเลขที่ 27/9", tag: "สัตว์ให้โชค", date: "2 วันก่อน", brief: "คนแห่ส่องเลขที่บ้าน-เวลาเกิดเหตุ" },
+        { title: "เสียงสวดมนต์กลางดึกจากป่าช้าเก่า", tag: "ลี้ลับ", date: "3 วันก่อน", brief: "เชื่อเป็นดวงวิญญาณผู้มีบุญ" },
+        { title: "แสงเคลื่อนที่บนภูเขายามค่ำ", tag: "UFO?", date: "4 วันก่อน", brief: "ยังไม่ยืนยันต้นตอ" }
+      ],
+      tips: [
+        { title: "คาถาเรียกทรัพย์ก่อนออกจากบ้าน", brief: "ตั้งจิตมั่น อ่านสั้น ๆ 3 จบ" },
+        { title: "วิธีจัดกระเป๋าสตางค์เรียกโชค", brief: "แยกธนบัตรเป็นชุด สลับเลขลงท้ายดี ๆ" },
+        { title: "ตั้งโต๊ะทำงานตามฮวงจุ้ย", brief: "หันหน้ารับแสง ลดของไม่จำเป็น" },
+        { title: "ก่อนนอน 1 นาทีเสริมดวง", brief: "ขอบคุณ 3 เรื่องของวันนี้" },
+        { title: "สมุนไพรเรียกโชค: ใบมะกา", brief: "พกในกระเป๋าสตางค์ตามความเชื่อ" }
+      ],
+      chants: [
+        { title: "คาถามหานิยม (ย่อ)", text: "นะมะพะทะ — สวด 9 จบ" },
+        { title: "คาถาเงินล้าน (ย่อ)", text: "สัมปะจิตฉามิ — เช้า-ก่อนนอน" },
+        { title: "คาถาเรียกงาน", text: "ชินะปัญชะระ — ตั้งจิตก่อนสัมภาษณ์" },
+        { title: "คาถาเมตตาใหญ่ (ย่อ)", text: "สัพเพ สัตตา สุขิตา โหนตุ" }
+      ],
+      // Dream dictionary (40+ items)
+      dreamBook: {
+        "งู": {"meaning":"พบเนื้อคู่/มีคนอุปถัมภ์ โชคลาภเล็ก ๆ","numbers":["5","6","56","65","566"]},
+        "ฟันหลุด":{"meaning":"เปลี่ยนแปลง/ย้ายงาน/เรื่องครอบครัว","numbers":["8","0","80","808"]},
+        "เด็กทารก":{"meaning":"เริ่มต้นสิ่งใหม่ งานหรือโชค","numbers":["1","9","19","91","109"]},
+        "เงินทอง":{"meaning":"หมุนเงินคล่อง แต่ควรแบ่งออม","numbers":["2","7","27","72","207"]},
+        "น้ำท่วม":{"meaning":"อารมณ์ล้น ระวังคำพูด","numbers":["1","2","12","21","112"]},
+        "ปลา":{"meaning":"ได้ลาภปาก ของกินของใช้","numbers":["7","8","78","87","708"]},
+        "จระเข้":{"meaning":"ผู้ใหญ่/อำนาจ เกี่ยวข้อง โชคใหญ่-เสี่ยงภัย","numbers":["3","6","36","63","306"]},
+        "อุจจาระ":{"meaning":"ลาภลอย การเงินมาแบบไม่คาดคิด","numbers":["1","2","12","21","112"]},
+        "ผี":{"meaning":"เรื่องเก่ารบกวน ต้องปล่อยวาง","numbers":["0","4","40","04","404"]},
+        "งานศพ":{"meaning":"สิ้นสุดเรื่องคาราคาซัง เริ่มต้นใหม่","numbers":["1","0","10","100"]},
+        "ทอง":{"meaning":"โอกาสดีด้านการเงิน/งาน","numbers":["9","6","96","906"]},
+        "ฟันหัก":{"meaning":"กังวลเรื่องคนใกล้ชิด","numbers":["8","1","81","801"]},
+        "รถชน":{"meaning":"ระวังอุบัติเหตุ/คำพูด","numbers":["3","8","38","308"]},
+        "หมา":{"meaning":"มิตรซื่อสัตย์ช่วยเหลือ","numbers":["4","6","46","406"]},
+        "แมว":{"meaning":"ความรัก/อิสระส่วนตัว","numbers":["2","9","29","209"]},
+        "พระ":{"meaning":"ผู้ใหญ่เมตตา สิ่งศักดิ์สิทธิ์คุ้มครอง","numbers":["9","5","95","905"]},
+        "ไฟไหม้":{"meaning":"อารมณ์ร้อน โอกาสใหม่","numbers":["1","0","10","101"]},
+        "ฝนตก":{"meaning":"ชำระล้างสิ่งหม่น เริ่มใหม่สดใส","numbers":["7","0","70","707"]},
+        "ตกน้ำ":{"meaning":"เสียสมดุล ตั้งสติ","numbers":["2","3","23","203"]},
+        "ขึ้นบ้านใหม่":{"meaning":"ความก้าวหน้า/มั่นคง","numbers":["9","1","91","901"]},
+        "งูกัด":{"meaning":"ข่าวจากคนไกล เรื่องไม่คาดคิด","numbers":["6","1","61","601"]},
+        "เหา":{"meaning":"เรื่องกวนใจเล็ก ๆ","numbers":["7","1","71","701"]},
+        "นก":{"meaning":"ข่าวดี การเดินทาง","numbers":["5","3","53","503"]},
+        "ดอกไม้":{"meaning":"ความรัก/คำชื่นชม","numbers":["6","2","62","602"]},
+        "เลือด":{"meaning":"พลังชีวิต/เรื่องครอบครัว","numbers":["0","8","08","808"]},
+        "ตั้งครรภ์":{"meaning":"ไอเดียใหม่กำลังเกิด","numbers":["1","2","12","102"]},
+        "ได้บ้านใหม่":{"meaning":"ทรัพย์สิน/ความมั่นคง","numbers":["9","0","90","910"]},
+        "เหรียญ":{"meaning":"เงินก้อนเล็ก รายรับจุกจิก","numbers":["2","5","25","205"]},
+        "ธนบัตร":{"meaning":"ค่าใช้จ่ายก้อนหนึ่ง","numbers":["1","5","15","105"]},
+        "เพชร":{"meaning":"สิ่งมีค่าจะเข้ามา","numbers":["4","9","49","409"]},
+        "ข้าวสาร":{"meaning":"ความอุดมสมบูรณ์","numbers":["8","1","81","801"]},
+        "เสือ":{"meaning":"อำนาจ บารมี ศัตรูเกรงใจ","numbers":["1","3","13","103"]},
+        "ช้าง":{"meaning":"ผู้ใหญ่เมตตา ความสำเร็จใหญ่","numbers":["2","6","26","206"]},
+        "เต่า":{"meaning":"อายุยืน ความมั่นคง เดินช้าแต่ชัวร์","numbers":["4","8","48","408"]},
+        "ไก่":{"meaning":"การงานขยัน รุ่งเรือง","numbers":["7","1","71","701"]},
+        "ม้า":{"meaning":"การเดินทางไกล มีผู้ช่วยเหลือ","numbers":["5","9","59","509"]},
+        "พญานาค":{"meaning":"โชคลาภใหญ่ เกียรติยศ","numbers":["9","7","97","907"]},
+        "ดอกบัว":{"meaning":"ความดีงาม ความสงบ","numbers":["8","0","80","808"]},
+        "ภูเขา":{"meaning":"ความมั่นคง อุปสรรคที่ข้ามได้","numbers":["2","8","28","208"]},
+        "ทะเล":{"meaning":"อิสระ ความกว้างใหญ่ ความรู้สึกผันผวน","numbers":["6","0","60","606"]},
+        "บ้าน":{"meaning":"ครอบครัว มั่นคง ทรัพย์สิน","numbers":["9","2","92","902"]},
+        "โรงเรียน":{"meaning":"การเรียนรู้ โอกาสใหม่","numbers":["1","4","14","104"]},
+        "โทรศัพท์":{"meaning":"ข่าวสาร การติดต่อ คำสำคัญ","numbers":["3","1","31","301"]},
+        "กระเป๋าเงิน":{"meaning":"การเงิน การเก็บออม","numbers":["2","9","29","209"]},
+        "รองเท้า":{"meaning":"โอกาสใหม่ การเดินทาง","numbers":["4","2","42","402"]},
+        "บันได":{"meaning":"ความก้าวหน้า เลื่อนขั้น","numbers":["1","7","17","117"]},
+        "เครื่องบิน":{"meaning":"การเปลี่ยนแปลงเร็ว โอกาสไกล","numbers":["9","1","91","901"]},
+        "รถไฟ":{"meaning":"การเดินทางตามแผน ความต่อเนื่อง","numbers":["3","9","39","309"]},
+        "เรือ":{"meaning":"ข้ามอุปสรรค สู่เป้าหมาย","numbers":["2","0","20","220"]},
+        "ตลาด":{"meaning":"การค้า โอกาสรายได้","numbers":["5","2","52","502"]},
+        "ครู":{"meaning":"ผู้ชี้แนะ โอกาสเรียนรู้","numbers":["1","0","10","110"]},
+        "ตำรวจ":{"meaning":"กฎระเบียบ ระวังผิดกฎหมาย","numbers":["4","7","47","407"]},
+        "แมงมุม":{"meaning":"วางแผน อดทน ได้ผลภายหลัง","numbers":["8","4","84","804"]},
+        "แมงป่อง":{"meaning":"ระวังพิษภัย คนอิจฉา","numbers":["9","4","94","904"]},
+        "ผีเสื้อ":{"meaning":"การเปลี่ยนแปลงสวยงาม โอกาสใหม่","numbers":["6","3","63","603"]},
+        "รุ้ง":{"meaning":"ความหวัง ความสำเร็จหลังพายุ","numbers":["7","9","79","709"]},
+        "พระอาทิตย์ขึ้น":{"meaning":"เริ่มต้นใหม่ พลังงานดี","numbers":["1","6","16","106"]}
+      }
+    };
+
+    // Helpers
+    const $ = (q, el=document)=>el.querySelector(q);
+    const $$ = (q, el=document)=>Array.from(el.querySelectorAll(q));
+    $('#year').textContent = new Date().getFullYear();
+
+    // Hero quicks
+    $('#todayNumbers').textContent = SITE.todayNumbers.join(' • ');
+    $('#moneyDaily').textContent = SITE.daily.money;
+
+    // Ticker
+    const ticker = SITE.mysteryNews.slice(0,3).map(n=>`${n.title} (${n.date})`).join(' · ');
+    $('#mysteryTicker').textContent = ticker;
+
+    // Lists
+    const toList = (arr)=>'<div class="grid" style="gap:10px;margin-top:6px">'+arr.map(x=>`<div class="item"><strong>${x.t||x.title}</strong><div class="muted" style="margin-top:4px">${x.nums?`เลขเด่น: ${x.nums.join(' , ')}`:x.brief||''}</div>${x.note?`<div class="muted">${x.note}</div>`:''}</div>`).join('')+'</div>';
+    $('#newsNumbers').innerHTML = toList(SITE.newsNumbers);
+    $('#dreamNumbers').innerHTML = toList(SITE.dreamNumbers);
+    $('#templeNumbers').innerHTML = toList(SITE.templeNumbers);
+
+    // Horoscope
+    $('#loveDaily').textContent = SITE.daily.love;
+    $('#workDaily').textContent = SITE.daily.work;
+
+    // Mystery list
+    $('#mysteryList').innerHTML = SITE.mysteryNews.map(n=>`
+      <article class="card"><div class="card-inner">
+        <div style="display:flex;gap:8px;align-items:center"><span class="badge">${n.tag}</span><span class="muted" style="margin-left:auto">${n.date}</span></div>
+        <strong style="display:block;margin:6px 0">${n.title}</strong>
+        <div class="muted">${n.brief}</div>
+      </div></article>
+    `).join('');
+
+    // Tips
+    $('#tipsList').innerHTML = SITE.tips.map(t=>`
+      <article class="card"><div class="card-inner">
+        <strong>${t.title}</strong>
+        <div class="muted" style="margin-top:6px">${t.brief}</div>
+      </div></article>
+    `).join('');
+
+    // Chants
+    $('#chantsList').innerHTML = SITE.chants.map(c=>`
+      <article class="card"><div class="card-inner">
+        <strong>${c.title}</strong>
+        <div class="muted" style="margin-top:6px">${c.text}</div>
+      </div></article>
+    `).join('');
+
+    // Dream search
+    const normalize = s => (s||'').toString().trim().toLowerCase();
+    const dreamSearch = q => {
+      const key = Object.keys(SITE.dreamBook).find(k => normalize(k) === normalize(q));
+      return key ? SITE.dreamBook[key] : null;
+    };
+    const showDream = q => {
+      const res = dreamSearch(q);
+      const box = $('#dreamResult');
+      if(!res){
+        box.style.display = 'block';
+        box.innerHTML = `<div class="muted">ไม่พบคำว่า “${q}” ในคลังฝัน ลองคำอื่น เช่น <b>งู</b>, <b>ฟันหลุด</b>, <b>ทอง</b>, <b>ปลา</b></div>`;
+        return;
+      }
+      box.style.display = 'block';
+      box.innerHTML = `<strong>ความหมายฝัน: ${q}</strong><div class="muted" style="margin:6px 0 8px">${res.meaning}</div><div class="muted">เลขเด่น: ${res.numbers.join(' , ')}</div>`;
+    };
+    $('#dreamBtn').addEventListener('click', ()=> showDream($('#dreamInput').value));
+    $('#dreamInput').addEventListener('keydown', e=>{ if(e.key==='Enter') showDream(e.target.value); });
   </script>
 </body>
 </html>
